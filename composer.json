@@ -1,0 +1,21 @@
+{
+    "name": "astroanu/laravel-seo-gen",
+    "description": "SEO friendly meta tags generator for Laravel",
+    "keywords": ["laravel", "seo", "meta", "html", "tags"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anuradha Jayathilaka",
+            "email": "astroanu2004@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Astroanu\\SEOGen\\": "src/"
+        }
+    },
+    "require": {
+        "laravel/framework": "5.0.*"
+    },
+    "minimum-stability": "dev"
+}

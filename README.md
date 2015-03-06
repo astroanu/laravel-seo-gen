@@ -2,6 +2,11 @@
 SEO friendly meta tags generator for Laravel
 
 ### Usage
+add the provider to config\app.php:
+````
+'Astroanu\SEOGen\SEOGenProvider'
+````
+
 In the base controller:
 ````
 abstract class Controller extends BaseController {

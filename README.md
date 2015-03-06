@@ -26,7 +26,7 @@ run php artisan vendor:publish to copy the config file.
 		],
 		
 		'twitter' => [
-			'render' => true // wheather to render twitter og tags or not
+			'render' => true // wheather to render twitter meta tags or not
 		]
 
 	]	

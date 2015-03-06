@@ -7,6 +7,31 @@ add the provider to config\app.php:
 'Astroanu\SEOGen\SEOGenProvider'
 ````
 
+run php artisan vendor:publish to copy the config file.
+
+````
+	'meta' => [
+	
+		'default_title' => 'My App', // default title for application
+		'concat_default_title' => true, // wheatehr to concat the default title with the provided title. if this is true and if a title if provided in the controller the result would be "provided title : My App"
+		'concat_with' => ' : ' // the string to concat the titles
+
+	],
+
+	'social' => [
+
+		'og' => [
+			'render' => true, // wheather to render facebook og tags or not
+			'additional_og_tags' => [] // additinal tags to consider when rendering og tags
+		],
+		
+		'twitter' => [
+			'render' => true // wheather to render twitter og tags or not
+		]
+
+	]	
+````
+
 In the base controller:
 ````
 abstract class Controller extends BaseController {

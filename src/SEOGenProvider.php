@@ -16,7 +16,7 @@ class SEOGenProvider extends ServiceProvider {
 		);
 	}
 
-	    /**
+	/**
      * Bootstrap the application events.
      *
      * @return void
@@ -25,7 +25,7 @@ class SEOGenProvider extends ServiceProvider {
     {
 
 		$this->publishes([
-		    __DIR__ . '/../config/seo-gen.php' => config_path('seo-gen.php')
+		    __DIR__ . '/../config/seogen.php' => config_path('astroanu/seogen.php')
 		], 'config');
     }
 }

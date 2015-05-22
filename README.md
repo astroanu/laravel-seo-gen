@@ -62,3 +62,56 @@ in the view render everything:
 ````
 <?php \Astroanu\SEOGen\Renderer::render($metaData); ?>
 ````
+
+### Example
+````
+return 	array(
+
+	'meta' => [
+	
+		'default_title' => 'My App',
+		'concat_default_title' => true,
+		'concat_with' => ' : '
+
+	],
+
+	'social' => [
+
+		'og' => [
+			'render' => true,
+			'additional_og_tags' => ['fb__app_id', 'test_tag']
+		],
+		
+		'twitter' => [
+			'render' => true
+		]
+
+	]
+	
+);
+
+$this->metaData->title = 'Welcome';
+$this->metaData->description = 'Some demo text here for you to see';
+$this->metaData->robots = 'noindex,nofollow';
+$this->metaData->image = 'http://www.sample.com/image.jpg';
+$this->metaData->fb__app_id = '456456456456';
+$this->metaData->test_tag = 'test text';
+
+return view('welcome', ['metaData' => $this->metaData]);
+````
+will yeild:
+
+````
+<title>Welcome : My App</title>
+<meta name="description" content="Some demo text here for you to see" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="image" content="http://www.sample.com/image.jpg" />
+<meta property="og:title" content="Welcome" />
+<meta property="og:description" content="Some demo text here for you to see" />
+<meta property="og:image" content="http://www.sample.com/image.jpg" />
+<meta property="fb:app_id" content="456456456456" />
+<meta property="test_tag" content="test text" />
+<meta property="twitter:title" content="Welcome" />
+<meta property="twitter:description" content="Some demo text here for you to see" />
+<meta property="twitter:image" content="http://www.sample.com/image.jpg" />
+````

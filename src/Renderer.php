@@ -38,8 +38,20 @@ class Renderer {
 		);
 
 		foreach ($data->getData() as $key => $value) {
-			if (in_array($key, $validOgTags)) {
+			if (in_array($key, ['title', 'type', 'image', 'url', 'description'])) {
 				echo '<meta property="og:'. $key .'" content="'. $value .'" />';
+			}
+		}			
+
+		foreach (Config::get('astroanu.seogen.social.og.additional_og_tags', []) as $value) {
+			if (isset($data->getData()[$value])) {
+				$parts = explode('__', $value);
+
+				if (count($parts) >= 2) {
+					echo '<meta property="'. str_replace('__', ':', $value) .'" content="'. $data->getData()[$value] .'" />';
+				} else{
+					echo '<meta property="'. $value .'" content="'. $data->getData()[$value] .'" />';					
+				}
 			}
 		}		
 	}
@@ -61,7 +73,10 @@ class Renderer {
 					break;
 				
 				default:
-					echo '<meta name="' . $key . '" content="'. $value .'" />';
+
+					if (!in_array($key, Config::get('astroanu.seogen.social.og.additional_og_tags', []))) {
+						echo '<meta name="' . $key . '" content="'. $value .'" />';						
+					}
 					break;
 			}
 

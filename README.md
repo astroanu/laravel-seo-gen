@@ -65,6 +65,8 @@ in the view render everything:
 
 ### Example
 ````
+// config
+
 return 	array(
 
 	'meta' => [
@@ -90,12 +92,14 @@ return 	array(
 	
 );
 
+// controller
+
 $this->metaData->title = 'Welcome';
 $this->metaData->description = 'Some demo text here for you to see';
 $this->metaData->robots = 'noindex,nofollow';
 $this->metaData->image = 'http://www.sample.com/image.jpg';
-$this->metaData->fb__app_id = '456456456456';
-$this->metaData->test_tag = 'test text';
+$this->metaData->fb__app_id = '456456456456'; // double underscore will be treated as a namespace
+$this->metaData->test_tag = 'test text'; // this will still render as a meta tag
 
 return view('welcome', ['metaData' => $this->metaData]);
 ````

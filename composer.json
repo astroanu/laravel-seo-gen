@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "laravel/framework": "5.0.*"
+        "laravel/framework": "5.0.x|5.1.x"
     },
     "minimum-stability": "dev"
 }

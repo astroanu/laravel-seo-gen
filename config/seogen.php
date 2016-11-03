@@ -18,7 +18,8 @@ return 	array(
 		],
 		
 		'twitter' => [
-			'render' => true
+			'render' => true,
+			'additional_twitter_tags' => []
 		]
 
 	]

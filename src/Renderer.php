@@ -25,7 +25,19 @@ class Renderer {
 
 		foreach ($data->getData() as $key => $value) {
 			if (in_array($key, $validTwitterTags)) {
-				echo '<meta property="twitter:'. $key .'" content="'. $value .'" />';
+				echo '<meta name="twitter:'. $key .'" content="'. $value .'" />';
+			}
+		}				
+
+		foreach (Config::get('astroanu.seogen.social.twitter.additional_twitter_tags', []) as $value) {
+			if (isset($data->getData()[$value])) {
+				$parts = explode('__', $value);
+
+				if (count($parts) >= 2) {
+					echo '<meta name="twitter:'. str_replace('__', ':', $value) .'" content="'. $data->getData()[$value] .'" />';
+				} else{
+					echo '<meta name="twitter:'. $value .'" content="'. $data->getData()[$value] .'" />';					
+				}
 			}
 		}		
 	}
